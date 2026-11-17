@@ -795,6 +795,7 @@ fn build_config(language: guess::Language) -> TreeSitterConfig {
                 }],
             }
         }
+        #[cfg(feature = "newick")]
         Newick => {
             let language_fn = tree_sitter_newick::LANGUAGE;
             let language = tree_sitter::Language::new(language_fn);

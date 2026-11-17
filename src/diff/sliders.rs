@@ -59,7 +59,9 @@ fn prefer_outer_delimiter(language: guess_language::Language) -> bool {
     match language {
         // For Lisp family languages, we get the best result with the
         // outer delimiter.
-        EmacsLisp | Clojure | CommonLisp | Janet | Racket | Scheme | Newick => true,
+        EmacsLisp | Clojure | CommonLisp | Janet | Racket | Scheme => true,
+        #[cfg(feature = "newick")]
+        Newick => true,
         // JSON and TOML are like Lisp: the outer delimiter in an array object
         // is the most relevant.
         Json | Toml | Hcl => true,

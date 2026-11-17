@@ -110,7 +110,7 @@ tree-sitter-julia = "0.23.1"
 tree-sitter-kotlin-sg = "0.4.0"
 tree-sitter-lua = "0.5"
 tree-sitter-make = "1.1.1"
-tree-sitter-newick = "1.1.0"
+tree-sitter-newick = { version = "1.1.0", optional = true }
 tree-sitter-nix = "0.3.0"
 tree-sitter-objc = "3.0.2"
 tree-sitter-ocaml = "0.25.0"
@@ -157,6 +157,12 @@ version_check = "0.9.4"
 [profile.release]
 lto = "thin"
 
+[lib]
+name = "difftastic"
+path = "src/lib.rs"
+# Doc comments in the shared modules were written for a bin-only crate and are not doctests.
+doctest = false
+
 [[bin]]
 name = "difft"
 path = "src/main.rs"
@@ -172,3 +178,6 @@ assets = [
 ]
 
 [features]
+default = ["newick"]
+# Off in allThatDiff: tree-sitter-newick is CECILL-C; .nwk files then diff as plain text.
+newick = ["dep:tree-sitter-newick"]

@@ -59,6 +59,7 @@ mod words;
 
 #[macro_use]
 extern crate log;
+extern crate difftastic as _;
 
 use display::style::print_warning;
 use log::info;

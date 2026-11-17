@@ -54,6 +54,7 @@ pub(crate) enum Language {
     LaTeX,
     Lua,
     Make,
+    #[cfg(feature = "newick")]
     Newick,
     Nix,
     ObjC,
@@ -152,6 +153,7 @@ pub(crate) fn language_name(language: Language) -> &'static str {
         LaTeX => "LaTeX",
         Lua => "Lua",
         Make => "Make",
+        #[cfg(feature = "newick")]
         Newick => "Newick",
         Nix => "Nix",
         ObjC => "Objective-C",
@@ -348,6 +350,7 @@ pub(crate) fn language_globs(language: Language) -> Vec<glob::Pattern> {
             "makefile.sco",
             "mkfile",
         ],
+        #[cfg(feature = "newick")]
         Newick => &["*.nhx", "*.nwk", "*.nh"],
         Nix => &["*.nix"],
         ObjC => &["*.m"],

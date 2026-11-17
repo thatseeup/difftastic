@@ -1,6 +1,6 @@
 //! CLI option parsing.
 
-use std::env;
+use std::env::{self};
 use std::ffi::{OsStr, OsString};
 use std::fmt::Display;
 use std::io::IsTerminal as _;
